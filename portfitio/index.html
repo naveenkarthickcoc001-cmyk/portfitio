@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of G. Naveen Karthick – CSE student, developer, and creative mind." />
+  <meta name="theme-color" content="#7c3aed" />
+  <title>Naveen Karthick | Portfolio</title>
+  <link rel="icon" href="nk.jpg.webp" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Forest Background with Image -->
+  <div class="forest-bg"></div>
+
+  <!-- Sunlight Rays Overlay -->
+  <div class="sunrays"></div>
+
+  <!-- Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ─── Navbar ─── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo" onclick="navigateTo('home')">NK.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" data-page="home" class="active" onclick="navigateTo('home')">Home</a></li>
+      <li><a href="#" data-page="about" onclick="navigateTo('about')">About</a></li>
+      <li><a href="#" data-page="projects" onclick="navigateTo('projects')">Projects</a></li>
+      <li><a href="#" data-page="websites" onclick="navigateTo('websites')">Websites</a></li>
+      <li><a href="#" data-page="achievements" onclick="navigateTo('achievements')">Achievements</a></li>
+      <li><a href="#" data-page="contact" onclick="navigateTo('contact')">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── Home / Hero ─── -->
+  <section id="home" class="active">
+    <div class="hero-badge"><span class="dot"></span> Available for opportunities</div>
+    <h1 class="hero-title">
+      Hi, I'm <span class="gradient-text">Naveen Karthick</span>
+    </h1>
+    <p class="hero-subtitle">
+      A passionate Computer Science &amp; Engineering student crafting digital experiences with clean code and creative
+      design.
+    </p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary" onclick="navigateTo('projects')"><i class="fas fa-rocket"></i> View My
+        Work</a>
+      <a href="#" class="btn btn-outline" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i> Contact Me</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number" id="stat-projects">0</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="stat-websites">0</div>
+        <div class="stat-label">Websites</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" id="stat-achievements">0</div>
+        <div class="stat-label">Achievements</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── About ─── -->
+  <section id="about">
+    <div class="section-header">
+      <h2>About Me</h2>
+      <p>Get to know the person behind the code</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <div class="about-photo-placeholder">👨‍💻</div>
+      </div>
+      <div class="about-info">
+        <h3>G. Naveen Karthick</h3>
+        <p>I am a 2nd year Computer Science &amp; Engineering student at Jayaraj Annapackiam CSI College of Engineering
+          (Batch 2024–2028). I love building things for the web and exploring new technologies.</p>
+        <ul class="about-details">
+          <li><span class="label">🎓 College</span><span class="value">Jayaraj Annapackiam CSI College of
+              Engineering</span></li>
+          <li><span class="label">💻 Branch</span><span class="value">CSE – Computer Science &amp; Engineering</span>
+          </li>
+          <li><span class="label">📅 Batch</span><span class="value">2024 – 2028 (2nd Year)</span></li>
+          <li><span class="label">📍 Location</span><span class="value">Tamil Nadu, India</span></li>
+        </ul>
+        <div id="extra-about-details"></div>
+        <div class="skills-wrap">
+          <h4>Skills &amp; Technologies</h4>
+          <div class="skills-tags">
+            <span class="skill-tag">HTML</span><span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span><span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span><span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Python</span><span class="skill-tag">Git</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;">
+          <button class="btn btn-outline btn-sm" onclick="openModal('about')"><i class="fas fa-plus"></i> Add
+            Detail</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Projects ─── -->
+  <section id="projects">
+    <div class="section-header">
+      <h2>My Projects</h2>
+      <p>Things I've built with passion and purpose</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid" id="projects-grid"></div>
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn btn-primary btn-sm" onclick="openModal('project')"><i class="fas fa-plus"></i> Add New
+        Project</button>
+    </div>
+  </section>
+
+  <!-- ─── Websites ─── -->
+  <section id="websites">
+    <div class="section-header">
+      <h2>My Websites</h2>
+      <p>Live sites &amp; web apps I've launched</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="cards-grid" id="websites-grid"></div>
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn btn-primary btn-sm" onclick="openModal('website')"><i class="fas fa-plus"></i> Add New
+        Website</button>
+    </div>
+  </section>
+
+  <!-- ─── Achievements ─── -->
+  <section id="achievements">
+    <div class="section-header">
+      <h2>Achievements</h2>
+      <p>Milestones that mark my journey</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline" id="achievements-timeline"></div>
+    <div style="text-align:center;margin-top:40px;">
+      <button class="btn btn-primary btn-sm" onclick="openModal('achievement')"><i class="fas fa-plus"></i> Add
+        Achievement</button>
+    </div>
+  </section>
+
+  <!-- ─── Contact ─── -->
+  <section id="contact">
+    <div class="section-header">
+      <h2>Contact Me</h2>
+      <p>Let's connect and create something amazing</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info-card">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value">naveenkarthick@example.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="label">Phone</div>
+            <div class="value">+91 XXXXX XXXXX</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="label">Location</div>
+            <div class="value">Tamil Nadu, India</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+          <div>
+            <div class="label">LinkedIn</div>
+            <div class="value">linkedin.com/in/naveenkarthick</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fab fa-github"></i></div>
+          <div>
+            <div class="label">GitHub</div>
+            <div class="value">github.com/naveenkarthick</div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="handleContact(event)">
+        <div class="form-group"><label for="c-name">Your Name</label><input type="text" id="c-name"
+            placeholder="John Doe" required /></div>
+        <div class="form-group"><label for="c-email">Your Email</label><input type="email" id="c-email"
+            placeholder="you@email.com" required /></div>
+        <div class="form-group"><label for="c-msg">Message</label><textarea id="c-msg" rows="5"
+            placeholder="Write your message..." required></textarea></div>
+        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer">
+    <p>© 2026 G. Naveen Karthick · Built with ❤️ · All rights reserved</p>
+  </footer>
+
+  <!-- ─── Modal ─── -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Item</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <!-- ─── Toast ─── -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
